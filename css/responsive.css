@@ -1,0 +1,468 @@
+/* ============================================
+   NOTES APP - RESPONSIVE STYLES
+   Mobile-first responsive design
+   ============================================ */
+
+/* === DESKTOP (Default styles in styles.css) === */
+
+/* === TABLET (1024px and below) === */
+@media (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 280px 1fr;
+    }
+    
+    .sidebar-content {
+        padding: 1.25rem;
+    }
+    
+    .content-header {
+        padding: 1.5rem 2rem;
+    }
+    
+    .notes-container {
+        padding: 1.5rem 2rem;
+    }
+    
+    .notes-container[data-view="grid"] {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+/* === TABLET SMALL (768px and below) === */
+@media (max-width: 768px) {
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* App layout becomes single column */
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Sidebar becomes overlay */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 320px;
+        max-width: 85vw;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 24px var(--shadow-lg);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    /* Sidebar backdrop */
+    .sidebar.open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: fadeIn 0.3s ease;
+    }
+    
+    /* Main content takes full width */
+    .main-content {
+        margin-left: 0;
+    }
+    
+    /* Adjust content header for mobile menu */
+    .content-header {
+        padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+    }
+    
+    .content-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Notes container */
+    .notes-container {
+        padding: 1.5rem;
+    }
+    
+    .notes-container[data-view="grid"] {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Modal adjustments */
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+        border-radius: 12px;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    /* Note card in list view */
+    [data-view="list"] .note-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Stats grid */
+    .notes-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Form textarea */
+    .form-textarea {
+        min-height: 150px;
+    }
+    
+    /* Color picker */
+    .color-picker {
+        gap: 0.5rem;
+    }
+    
+    .color-option {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* === MOBILE (480px and below) === */
+@media (max-width: 480px) {
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+        top: 0.75rem;
+        left: 0.75rem;
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    .sidebar-header {
+        padding: 1.25rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.25rem;
+    }
+    
+    .logo svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .sidebar-content {
+        padding: 1rem;
+        gap: 1.25rem;
+    }
+    
+    .sidebar-footer {
+        padding: 1rem;
+    }
+    
+    /* Content header */
+    .content-header {
+        padding: 1.25rem 1rem 1.25rem 4rem;
+        flex-wrap: wrap;
+    }
+    
+    .content-header h2 {
+        font-size: 1.25rem;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .view-toggle {
+        margin-left: auto;
+    }
+    
+    /* Notes container */
+    .notes-container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    /* Note card */
+    .note-card {
+        padding: 1.25rem;
+    }
+    
+    .note-card-title {
+        font-size: 1rem;
+    }
+    
+    .note-card-text {
+        font-size: 0.875rem;
+        -webkit-line-clamp: 3;
+    }
+    
+    .note-card-date {
+        font-size: 0.75rem;
+    }
+    
+    .note-card-actions {
+        opacity: 1;
+    }
+    
+    .note-card-action-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .note-card-action-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .new-note-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* Search bar */
+    .search-input {
+        padding: 0.625rem 2.5rem 0.625rem 2.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .search-icon {
+        width: 16px;
+        height: 16px;
+        left: 0.75rem;
+    }
+    
+    /* Filter buttons */
+    .filter-btn {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+    }
+    
+    .filter-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    /* Stats */
+    .stat-item {
+        padding: 0.875rem;
+    }
+    
+    .stat-value {
+        font-size: 1.25rem;
+    }
+    
+    /* Empty states */
+    .empty-state,
+    .no-results-state {
+        padding: 3rem 1.5rem;
+    }
+    
+    .empty-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+    }
+    
+    .empty-title {
+        font-size: 1.25rem;
+    }
+    
+    .empty-description {
+        font-size: 0.9375rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Modal */
+    .modal-content {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        height: 100vh;
+    }
+    
+    .modal-header {
+        padding: 1rem 1.25rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .modal-body {
+        padding: 1.25rem;
+    }
+    
+    .modal-footer {
+        padding: 1rem 1.25rem;
+        flex-direction: column-reverse;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+    }
+    
+    /* Form elements */
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.9375rem;
+    }
+    
+    .form-textarea {
+        min-height: 120px;
+    }
+    
+    .form-label {
+        font-size: 0.8125rem;
+    }
+    
+    /* Color picker */
+    .color-option {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* === MOBILE SMALL (360px and below) === */
+@media (max-width: 360px) {
+    .mobile-menu-toggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .mobile-menu-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .content-header {
+        padding: 1rem 0.875rem 1rem 3.5rem;
+    }
+    
+    .content-header h2 {
+        font-size: 1.125rem;
+    }
+    
+    .notes-container {
+        padding: 0.875rem;
+    }
+    
+    .note-card {
+        padding: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.125rem;
+    }
+    
+    .sidebar-content {
+        padding: 0.875rem;
+    }
+}
+
+/* === LANDSCAPE MOBILE === */
+@media (max-height: 600px) and (orientation: landscape) {
+    .modal-content {
+        max-height: 95vh;
+    }
+    
+    .form-textarea {
+        min-height: 100px;
+    }
+    
+    .empty-state,
+    .no-results-state {
+        padding: 2rem 1.5rem;
+    }
+    
+    .empty-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* === TOUCH DEVICE OPTIMIZATIONS === */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase tap targets */
+    .btn,
+    .filter-btn,
+    .note-card-action-btn,
+    .view-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Always show note card actions on touch devices */
+    .note-card-actions {
+        opacity: 1;
+    }
+    
+    /* Remove hover states on touch devices */
+    .note-card:hover {
+        transform: none;
+    }
+    
+    .btn:hover,
+    .filter-btn:hover,
+    .note-card-action-btn:hover {
+        transform: none;
+    }
+}
+
+/* === SAFE AREA INSETS (for notched devices) === */
+@supports (padding: max(0px)) {
+    .sidebar {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+    
+    .mobile-menu-toggle {
+        top: max(0.75rem, env(safe-area-inset-top));
+        left: max(0.75rem, env(safe-area-inset-left));
+    }
+    
+    .content-header {
+        padding-top: max(1.5rem, calc(env(safe-area-inset-top) + 1rem));
+    }
+}
+
+/* === FOLDABLE DEVICE SUPPORT === */
+@media (horizontal-viewport-segments: 2) {
+    .app-container {
+        grid-template-columns: env(viewport-segment-width 0 0) 1fr;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+    }
+    
+    .main-content {
+        grid-column: 2;
+    }
+}
