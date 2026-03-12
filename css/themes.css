@@ -1,0 +1,216 @@
+/* ============================================
+   NOTES APP - THEME DEFINITIONS
+   CSS Custom Properties for Light/Dark Modes
+   ============================================ */
+
+/* === LIGHT THEME (DEFAULT) === */
+[data-theme="light"] {
+    /* Primary Colors */
+    --primary-color: #6366f1;
+    --primary-light: rgba(99, 102, 241, 0.1);
+    --primary-dark: #4f46e5;
+    
+    /* Background Colors */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-hover: #f1f5f9;
+    
+    /* Text Colors */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #94a3b8;
+    
+    /* Border & Divider */
+    --border-color: #e2e8f0;
+    --divider-color: #e2e8f0;
+    
+    /* Shadow */
+    --shadow-sm: rgba(15, 23, 42, 0.05);
+    --shadow-md: rgba(15, 23, 42, 0.1);
+    --shadow-lg: rgba(15, 23, 42, 0.2);
+    
+    /* Status Colors */
+    --success-color: #10b981;
+    --success-light: rgba(16, 185, 129, 0.1);
+    --warning-color: #f59e0b;
+    --warning-light: rgba(245, 158, 11, 0.1);
+    --danger-color: #ef4444;
+    --danger-light: rgba(239, 68, 68, 0.1);
+    --danger-dark: #dc2626;
+    --info-color: #3b82f6;
+    --info-light: rgba(59, 130, 246, 0.1);
+    
+    /* Note Colors */
+    --note-color-blue: #3b82f6;
+    --note-color-purple: #8b5cf6;
+    --note-color-pink: #ec4899;
+    --note-color-red: #ef4444;
+    --note-color-orange: #f97316;
+    --note-color-yellow: #eab308;
+    --note-color-green: #10b981;
+    --note-color-teal: #14b8a6;
+    --note-color-cyan: #06b6d4;
+    --note-color-gray: #6b7280;
+}
+
+/* === DARK THEME === */
+[data-theme="dark"] {
+    /* Primary Colors */
+    --primary-color: #818cf8;
+    --primary-light: rgba(129, 140, 248, 0.15);
+    --primary-dark: #6366f1;
+    
+    /* Background Colors */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-sidebar: #1a1f2e;
+    --bg-card: #1e293b;
+    --bg-hover: #334155;
+    
+    /* Text Colors */
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #64748b;
+    
+    /* Border & Divider */
+    --border-color: #334155;
+    --divider-color: #334155;
+    
+    /* Shadow */
+    --shadow-sm: rgba(0, 0, 0, 0.2);
+    --shadow-md: rgba(0, 0, 0, 0.3);
+    --shadow-lg: rgba(0, 0, 0, 0.5);
+    
+    /* Status Colors */
+    --success-color: #34d399;
+    --success-light: rgba(52, 211, 153, 0.15);
+    --warning-color: #fbbf24;
+    --warning-light: rgba(251, 191, 36, 0.15);
+    --danger-color: #f87171;
+    --danger-light: rgba(248, 113, 113, 0.15);
+    --danger-dark: #ef4444;
+    --info-color: #60a5fa;
+    --info-light: rgba(96, 165, 250, 0.15);
+    
+    /* Note Colors (adjusted for dark mode) */
+    --note-color-blue: #60a5fa;
+    --note-color-purple: #a78bfa;
+    --note-color-pink: #f472b6;
+    --note-color-red: #f87171;
+    --note-color-orange: #fb923c;
+    --note-color-yellow: #fde047;
+    --note-color-green: #34d399;
+    --note-color-teal: #2dd4bf;
+    --note-color-cyan: #22d3ee;
+    --note-color-gray: #9ca3af;
+}
+
+/* === THEME TRANSITION === */
+body,
+.app-container,
+.sidebar,
+.main-content,
+.note-card,
+.modal-content,
+.btn,
+.form-input,
+.form-textarea {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* === COLOR PALETTE UTILITIES === */
+.color-blue { background-color: var(--note-color-blue); }
+.color-purple { background-color: var(--note-color-purple); }
+.color-pink { background-color: var(--note-color-pink); }
+.color-red { background-color: var(--note-color-red); }
+.color-orange { background-color: var(--note-color-orange); }
+.color-yellow { background-color: var(--note-color-yellow); }
+.color-green { background-color: var(--note-color-green); }
+.color-teal { background-color: var(--note-color-teal); }
+.color-cyan { background-color: var(--note-color-cyan); }
+.color-gray { background-color: var(--note-color-gray); }
+
+/* === THEME-SPECIFIC ADJUSTMENTS === */
+
+/* Dark mode scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--bg-hover);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary);
+}
+
+/* Dark mode modal overlay */
+[data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark mode search input focus */
+[data-theme="dark"] .search-input:focus {
+    background: var(--bg-secondary);
+}
+
+/* Dark mode note card hover */
+[data-theme="dark"] .note-card:hover {
+    border-color: var(--primary-color);
+}
+
+/* === HIGH CONTRAST MODE SUPPORT === */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: currentColor;
+    }
+    
+    .btn {
+        border: 2px solid currentColor;
+    }
+    
+    .note-card {
+        border-width: 2px;
+    }
+}
+
+/* === REDUCED MOTION SUPPORT === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === PRINT STYLES === */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .sidebar,
+    .mobile-menu-toggle,
+    .theme-toggle,
+    .btn,
+    .note-card-actions,
+    .modal {
+        display: none !important;
+    }
+    
+    .app-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .note-card {
+        page-break-inside: avoid;
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+}
